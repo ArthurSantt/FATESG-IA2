@@ -1,0 +1,77 @@
+1. Definição e Características
+
+a) O que caracteriza um banco de dados não-relacional?
+
+  um banco de dados nao recionais sao banco de dados NoSql ou seja sem sequencia eles sao mais flexiveis e podem ser usados com uma grande variedade de formatos
+
+b) Quais são as vantagens desse tipo de banco em relação aos bancos
+relacionais?
+
+  os bancos relacionas ou Sql como o postgresql sao bancos de dados com uma sequencia e que sao melhores com uma maior quantidade de dados
+
+c) Cite ao menos 3 situações práticas em que um banco de dados não-
+relacional é mais indicado.
+
+  em sites onde precisa de varios logins ou que tem muitas pessoas acessando simultaneamente
+
+2. Tipos de Bancos de Dados Não-Relacionais
+
+a) Explique as diferenças entre os quatro principais tipos:
+
+  Orientados a Documentos
+    estrutura flexivel
+  Chave-Valor
+    dados armazenados como pares simples: chave -> valor
+  Colunas Amplas / Wide Column
+    armazenam dados em colunas organizadas por familias de colunas
+  Grafos
+    conexao entre dados
+
+b) Dê exemplos de ferramentas populares para cada tipo.
+
+  Documentos = MongoDB
+  Chave-Valor = Redis
+  Colunas Amplas = Apache Cassandra 
+  Grafos = Neo4j
+
+3. Comparação Prática
+
+a) Qual a principal diferença entre o modelo relacional e o modelo de
+grafos?
+
+  o modelo racional organiza os dados em colunas/linhas ja no modelo de grafos sao organizados por conexcao entre entidades usando nos
+
+b) Em um cenário de redes sociais, qual tipo de banco de dados seria
+mais adequado? Justifique.
+
+  bancos como Neo4j
+
+4. Escalabilidade e Flexibilidade
+
+a) Explique como a escalabilidade horizontal funciona em bancos não-
+relacionais.
+      
+  é quando adicionamos mais servidores em um sistema para dividir a carga
+
+b) Por que a flexibilidade de schema é importante em bancos orientados
+a documentos?
+
+  porque cada documento pode ter a sua propria estrutura
+
+5. Estudo de Caso:
+
+a) Pesquise um caso de uso real de uma empresa que utiliza bancos de
+dados não-relacionais.
+
+  empresas como a amazon e a netflix utilizam NoSql
+
+b) Descreva como esse banco é utilizado e quais foram os benefícios
+obtidos.
+
+  na netflix eles utlizam para administrar perfis dos usuarios e tem o beneficio de uma boa performance mesmo com milhares de usuarios
+  na amazon é utilizado para processar os pedidos em uma escala enorme
+
+
+
+
+
