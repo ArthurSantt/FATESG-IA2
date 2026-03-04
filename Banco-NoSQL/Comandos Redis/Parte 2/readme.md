@@ -9,4 +9,5 @@ Atividade de fazer comandos utilizando Redis
 ![Terminal](print2_codigo.png)
 
 ### 2 . Cmd
+
 ![Terminal](print_cmd.png)
