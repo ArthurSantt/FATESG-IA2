@@ -1,8 +1,11 @@
 Pesquisa Preparatória Conceitos de RAG e Qdrant 📚
+
 🎯 Objetivo
+
 Este material reúne os conceitos fundamentais sobre RAG e Bancos Vetoriais. O foco é criar uma base teórica sólida para as atividades práticas que faremos em aula utilizando o Qdrant.
 
 🔍 O que foi pesquisado
+
 RAG (Geração Aumentada por Recuperação) Entendi que é a técnica de dar um livro para a IA consultar antes de responder. Isso evita que ela invente informações e garante que as respostas sejam baseadas em dados reais e específicos.
 
 Embeddings É a tradução do nosso texto para a linguagem do computador (números). Descobri que isso serve para a máquina entender o significado das frases e não apenas as letras soltas.
