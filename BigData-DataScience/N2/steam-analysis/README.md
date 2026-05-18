@@ -1,113 +1,327 @@
-🎮 Análise de Dados — Steam Games
+# 🎮 Análise de Dados — Steam Games
 
-Projeto interdisciplinar de Ciência de Dados e Inteligência Artificial
-Análise completa de 27.075 jogos da plataforma Steam
+Projeto interdisciplinar de Ciência de Dados e Inteligência Artificial  
+Análise completa de 27.075 jogos da plataforma Steam.
 
+---
 
-👥 Integrantes do Grupo
+# 👥 Integrantes do Grupo
 
-    1.Arthur Machado Santos 
-    2.Guilherme Medeiro Nogueira
+1. Arthur Machado Santos  
+2. Guilherme Medeiro Nogueira
 
-📁 Estrutura do Repositório
+---
+
+# 📁 Estrutura do Repositório
+
+```bash
 📦 steam-analysis/
 ├── 📄 steam.csv                  # Dataset original (SteamSpy / Kaggle)
 ├── 🐍 estatistica.py             # R1 — Estatística Descritiva
 ├── 🐍 dashboard.py               # R2 — Dashboard de Visualização
 ├── 🐍 machine_learning.py        # R3 — Modelagem Preditiva (ML)
-├── 🖼️  dashboard.png              # Gráfico gerado pelo dashboard.py
-├── 🖼️  matrizes_confusao.png      # Gráfico gerado pelo machine_learning.py
+├── 🖼️ dashboard.png              # Dashboard gerado
+├── 🖼️ matrizes_confusao.png      # Matrizes de confusão
 └── 📄 README.md                  # Este arquivo
+```
 
-📊 Sobre o Dataset
-Fonte: Steam Games Dataset — Kaggle / SteamSpy
-O dataset contém informações de 27.075 jogos publicados na plataforma Steam, coletadas via API do SteamSpy. Os dados abrangem características técnicas, comerciais e de engajamento dos jogos.
-📋 Dicionário de Dados
-ColunaTipoDescriçãoappidintIdentificador único do jogo na plataforma SteamnamestrNome do jogorelease_datestrData de lançamento (formato YYYY-MM-DD)englishintSuporte ao inglês (1 = sim, 0 = não)developerstrEmpresa ou pessoa responsável pelo desenvolvimentopublisherstrEmpresa responsável pela publicação/distribuiçãoplatformsstrPlataformas suportadas (windows, mac, linux)required_ageintClassificação etária mínima exigidacategoriesstrCategorias do jogo (Single-player, Multi-player, etc.)genresstrGêneros do jogo (Action, RPG, Strategy, etc.)steamspy_tagsstrTags atribuídas pela comunidade SteamachievementsintNúmero total de conquistas disponíveispositive_ratingsintQuantidade de avaliações positivas dos usuáriosnegative_ratingsintQuantidade de avaliações negativas dos usuáriosaverage_playtimeintTempo médio de jogo por usuário (em minutos)median_playtimeintTempo mediano de jogo por usuário (em minutos)ownersstrFaixa estimada de proprietários (ex.: '1000000-2000000')pricefloatPreço atual do jogo em dólares americanos (USD)approval_rate*floatTaxa de aprovação calculada: positive / (positive + negative) × 100
+---
 
-*Coluna calculada durante a análise, não presente no CSV original.
+# 📊 Sobre o Dataset
 
+**Fonte:** Steam Games Dataset — Kaggle / SteamSpy
 
-🗂️ Etapa 1 — R1: Estatística Descritiva
-Arquivo: estatistica.py
-Resumo Analítico
-O projeto analisa o mercado de jogos digitais da plataforma Steam sob perspectivas de precificação, recepção da comunidade, engajamento dos jogadores e diversidade de gêneros. A grande variação nos valores das variáveis numéricas reflete a natureza heterogênea da plataforma, que reúne desde grandes produções (AAA) até jogos independentes (indie).
-Variáveis Analisadas
-Para cada variável abaixo foram calculados: média, mediana, moda, desvio padrão, variância, mínimo, máximo, Q1, Q2, Q3 e IQR, acompanhados de interpretação textual.
-VariávelDescriçãopricePreço do jogo em USDpositive_ratingsTotal de avaliações positivasnegative_ratingsTotal de avaliações negativasaverage_playtimeTempo médio de jogo (minutos)achievementsNúmero de conquistas disponíveisapproval_rateTaxa de aprovação percentual
-Principais Descobertas
+O dataset contém informações de **27.075 jogos** publicados na plataforma Steam, coletadas via API do SteamSpy.
 
-O preço médio dos jogos é ~$6,08, mas a mediana é $3,99 — indicando que jogos muito caros distorcem a média
-75% dos jogos custam menos de $7,19, mostrando que a maioria da biblioteca Steam é acessível
-A taxa de aprovação média é ~70%, com mediana próxima, indicando boa recepção geral da comunidade
-O tempo médio de jogo tem alta variância, refletindo a diversidade de gêneros da plataforma
+Os dados abrangem:
 
+- Características técnicas
+- Informações comerciais
+- Engajamento dos jogadores
+- Avaliações da comunidade
 
-📈 Etapa 2 — R2: Dashboard de Visualização
-Arquivo: dashboard.py | Saída: dashboard.png
+---
 
-![Dashboard de Análise Steam](dashboard.png)
+# 📋 Dicionário de Dados
 
-O dashboard foi desenvolvido com a biblioteca matplotlib e apresenta 3 gráficos distintos:
-Gráfico 1 — Top 10 Gêneros Mais Populares
-Gráfico de barras horizontais exibindo os gêneros com maior número de jogos na plataforma. Permite identificar quais categorias dominam o mercado Steam.
-Gráfico 2 — Distribuição por Faixa de Preço
-Gráfico de pizza segmentando os jogos em 5 faixas de preço: Gratuito, Até $5, $5–$15, $15–$30 e Acima de $30. Evidencia a forte presença de jogos acessíveis.
-Gráfico 3 — Taxa de Aprovação por Faixa de Preço
-Gráfico de barras verticais comparando a aprovação média dos jogos em cada faixa de preço, com linha de referência indicando a média geral. Permite analisar se jogos mais caros são melhor avaliados.
+| Coluna | Tipo | Descrição |
+|---|---|---|
+| `appid` | int | Identificador único do jogo |
+| `name` | str | Nome do jogo |
+| `release_date` | str | Data de lançamento |
+| `english` | int | Suporte ao inglês (1 = sim, 0 = não) |
+| `developer` | str | Empresa/pessoa desenvolvedora |
+| `publisher` | str | Empresa distribuidora |
+| `platforms` | str | Plataformas suportadas |
+| `required_age` | int | Classificação etária |
+| `categories` | str | Categorias do jogo |
+| `genres` | str | Gêneros do jogo |
+| `steamspy_tags` | str | Tags da comunidade |
+| `achievements` | int | Número de conquistas |
+| `positive_ratings` | int | Avaliações positivas |
+| `negative_ratings` | int | Avaliações negativas |
+| `average_playtime` | int | Tempo médio de jogo |
+| `median_playtime` | int | Tempo mediano de jogo |
+| `owners` | str | Faixa estimada de proprietários |
+| `price` | float | Preço em USD |
+| `approval_rate*` | float | Taxa de aprovação calculada |
 
-🤖 Etapa 2 — R3: Modelagem Preditiva (Machine Learning)
-Arquivo: machine_learning.py | Saída: matrizes_confusao.png
+> *A coluna `approval_rate` foi criada durante a análise e não existe no CSV original.*
 
-![Matrizes de Confusão - Comparação de Algoritmos](matrizes_confusao.png)
+---
 
-Problema e Variável Alvo
-Objetivo: Classificar se um jogo será bem avaliado (aprovação ≥ 75%) ou mal avaliado (< 75%).
-Trata-se de um problema de classificação binária, pois a variável alvo assume dois valores: 1 (bem avaliado) e 0 (mal avaliado).
-Features Utilizadas
-price, achievements, average_playtime, median_playtime, required_age, tem_windows, tem_mac, tem_linux, genre_cod, is_free
-Divisão dos Dados
-ConjuntoProporçãoRegistrosTreino80%~21.600Teste20%~5.400
+# 🗂️ Etapa 1 — R1: Estatística Descritiva
 
-Algoritmo 1 — Random Forest Classifier
-Justificativa: Algoritmo de ensemble baseado em múltiplas árvores de decisão. Escolhido por ser robusto a outliers (abundantes neste dataset), não exigir normalização, lidar bem com variáveis mistas e fornecer importância das features.
-Configuração: 100 árvores (n_estimators=100), random_state=42
-MétricaResultadoAcuráciaexecutar para verPrecisãoexecutar para verRecallexecutar para verF1-Scoreexecutar para ver
+**Arquivo:** `estatistica.py`
 
-Algoritmo 2 — Regressão Logística
-Justificativa: Algoritmo clássico de classificação binária, interpretável e rápido. Utilizado como modelo de comparação (baseline) em relação ao Random Forest. Exige normalização dos dados, realizada com StandardScaler.
-Configuração: max_iter=1000, regularização L2, random_state=42
-MétricaResultadoAcuráciaexecutar para verPrecisãoexecutar para verRecallexecutar para verF1-Scoreexecutar para ver
+## 📌 Resumo Analítico
 
-Comparação dos Algoritmos
-MétricaRandom ForestRegressão LogísticaAcurácia——Precisão——Recall——F1-Score——
+O projeto analisa o mercado de jogos digitais da Steam sob diferentes perspectivas:
 
-⚠️ Execute machine_learning.py para preencher os valores reais acima.
+- Precificação
+- Recepção da comunidade
+- Engajamento dos jogadores
+- Diversidade de gêneros
 
-Conclusão: O Random Forest tende a superar a Regressão Logística em datasets com relações não-lineares e outliers — características presentes nos dados Steam. A Regressão Logística, apesar de menor acurácia esperada, oferece maior interpretabilidade e serve como baseline sólido.
+A grande variação das variáveis reflete a natureza heterogênea da plataforma, que reúne desde jogos AAA até jogos independentes (indie).
 
-▶️ Como Executar
-Pré-requisitos
-bashpip install pandas numpy matplotlib scikit-learn
-Ordem de Execução
-bash# 1. Estatística Descritiva (R1)
+---
+
+## 📈 Variáveis Analisadas
+
+Para cada variável foram calculados:
+
+- Média
+- Mediana
+- Moda
+- Desvio padrão
+- Variância
+- Valor mínimo
+- Valor máximo
+- Quartis (Q1, Q2, Q3)
+- IQR
+
+| Variável | Descrição |
+|---|---|
+| `price` | Preço do jogo |
+| `positive_ratings` | Avaliações positivas |
+| `negative_ratings` | Avaliações negativas |
+| `average_playtime` | Tempo médio de jogo |
+| `achievements` | Número de conquistas |
+| `approval_rate` | Taxa de aprovação |
+
+---
+
+## 🔍 Principais Descobertas
+
+- O preço médio dos jogos é aproximadamente **$6,08**
+- A mediana é **$3,99**, indicando presença de outliers
+- 75% dos jogos custam menos de **$7,19**
+- A taxa média de aprovação é próxima de **70%**
+- O tempo médio de jogo apresenta alta variabilidade
+
+---
+
+# 📈 Etapa 2 — R2: Dashboard de Visualização
+
+**Arquivo:** `dashboard.py`  
+**Saída:** `dashboard.png`
+
+![Dashboard Steam](dashboard.png)
+
+O dashboard foi desenvolvido utilizando **Matplotlib** e contém 3 gráficos principais.
+
+---
+
+## 📊 Gráfico 1 — Top 10 Gêneros Mais Populares
+
+Gráfico de barras horizontais exibindo os gêneros com maior número de jogos na plataforma.
+
+---
+
+## 🥧 Gráfico 2 — Distribuição por Faixa de Preço
+
+Gráfico de pizza segmentando os jogos em 5 faixas de preço:
+
+- Gratuito
+- Até $5
+- $5–$15
+- $15–$30
+- Acima de $30
+
+---
+
+## 📉 Gráfico 3 — Taxa de Aprovação por Faixa de Preço
+
+Gráfico comparando a aprovação média dos jogos em cada faixa de preço.
+
+---
+
+# 🤖 Etapa 3 — R3: Modelagem Preditiva (Machine Learning)
+
+**Arquivo:** `machine_learning.py`  
+**Saída:** `matrizes_confusao.png`
+
+![Matrizes de Confusão](matrizes_confusao.png)
+
+---
+
+# 🎯 Objetivo
+
+Classificar se um jogo será:
+
+- **Bem avaliado** (aprovação ≥ 75%)
+- **Mal avaliado** (aprovação < 75%)
+
+Problema de **classificação binária**.
+
+---
+
+# 🧠 Features Utilizadas
+
+```python
+[
+    "price",
+    "achievements",
+    "average_playtime",
+    "median_playtime",
+    "required_age",
+    "tem_windows",
+    "tem_mac",
+    "tem_linux",
+    "genre_cod",
+    "is_free"
+]
+```
+
+---
+
+# 📂 Divisão dos Dados
+
+| Conjunto | Proporção | Registros |
+|---|---|---|
+| Treino | 80% | ~21.600 |
+| Teste | 20% | ~5.400 |
+
+---
+
+# 🌲 Algoritmo 1 — Random Forest
+
+## 📌 Justificativa
+
+Escolhido por:
+
+- Robustez contra outliers
+- Bom desempenho em dados heterogêneos
+- Capacidade de lidar com relações não-lineares
+- Importância das features
+
+## ⚙️ Configuração
+
+```python
+RandomForestClassifier(
+    n_estimators=100,
+    random_state=42
+)
+```
+
+---
+
+# 📉 Algoritmo 2 — Regressão Logística
+
+## 📌 Justificativa
+
+Escolhido como baseline por ser:
+
+- Interpretável
+- Rápido
+- Clássico em classificação binária
+
+## ⚙️ Configuração
+
+```python
+LogisticRegression(
+    max_iter=1000,
+    random_state=42
+)
+```
+
+---
+
+# 📊 Comparação dos Algoritmos
+
+| Métrica | Random Forest | Regressão Logística |
+|---|---|---|
+| Acurácia | Executar para ver | Executar para ver |
+| Precisão | Executar para ver | Executar para ver |
+| Recall | Executar para ver | Executar para ver |
+| F1-Score | Executar para ver | Executar para ver |
+
+> Execute `machine_learning.py` para preencher os resultados reais.
+
+---
+
+# ✅ Conclusão
+
+O Random Forest tende a apresentar melhor desempenho neste dataset devido à presença de:
+
+- Relações não-lineares
+- Outliers
+- Dados heterogêneos
+
+A Regressão Logística, apesar da menor performance esperada, fornece maior interpretabilidade e funciona como baseline sólido.
+
+---
+
+# ▶️ Como Executar
+
+## 📦 Pré-requisitos
+
+```bash
+pip install pandas numpy matplotlib scikit-learn
+```
+
+---
+
+## 🚀 Ordem de Execução
+
+### 1️⃣ Estatística Descritiva
+
+```bash
 python estatistica.py
+```
 
-# 2. Dashboard de Visualização (R2)
-python Dashboard.py
+### 2️⃣ Dashboard
 
-# 3. Machine Learning (R3)
+```bash
+python dashboard.py
+```
+
+### 3️⃣ Machine Learning
+
+```bash
 python machine_learning.py
+```
 
-⚠️ O arquivo steam.csv deve estar na mesma pasta que os scripts Python.
+> ⚠️ O arquivo `steam.csv` deve estar na mesma pasta dos scripts Python.
 
+---
 
-🛠️ Tecnologias Utilizadas
-TecnologiaVersãoUsoPython3.xLinguagem principalPandas—Manipulação de dadosNumPy—Cálculos numéricosMatplotlib—Visualização (dashboard)Scikit-learn—Modelos de Machine Learning
+# 🛠️ Tecnologias Utilizadas
 
-📚 Referências
+| Tecnologia | Uso |
+|---|---|
+| Python | Linguagem principal |
+| Pandas | Manipulação de dados |
+| NumPy | Cálculos numéricos |
+| Matplotlib | Visualização |
+| Scikit-learn | Machine Learning |
 
-Dataset: Steam Store Games — Kaggle
-Documentação Scikit-learn: scikit-learn.org
-Documentação Pandas: pandas.pydata.org
-SteamSpy API: steamspy.com/api.php
+---
+
+# 📚 Referências
+
+- Steam Store Games — Kaggle
+- Scikit-learn Documentation
+- Pandas Documentation
+- SteamSpy API
