@@ -45,6 +45,9 @@ O tempo médio de jogo tem alta variância, refletindo a diversidade de gêneros
 
 📈 Etapa 2 — R2: Dashboard de Visualização
 Arquivo: dashboard.py | Saída: dashboard.png
+
+![Dashboard de Análise Steam](dashboard.png)
+
 O dashboard foi desenvolvido com a biblioteca matplotlib e apresenta 3 gráficos distintos:
 Gráfico 1 — Top 10 Gêneros Mais Populares
 Gráfico de barras horizontais exibindo os gêneros com maior número de jogos na plataforma. Permite identificar quais categorias dominam o mercado Steam.
@@ -55,6 +58,9 @@ Gráfico de barras verticais comparando a aprovação média dos jogos em cada f
 
 🤖 Etapa 2 — R3: Modelagem Preditiva (Machine Learning)
 Arquivo: machine_learning.py | Saída: matrizes_confusao.png
+
+![Matrizes de Confusão - Comparação de Algoritmos](matrizes_confusao.png)
+
 Problema e Variável Alvo
 Objetivo: Classificar se um jogo será bem avaliado (aprovação ≥ 75%) ou mal avaliado (< 75%).
 Trata-se de um problema de classificação binária, pois a variável alvo assume dois valores: 1 (bem avaliado) e 0 (mal avaliado).
@@ -88,7 +94,7 @@ bash# 1. Estatística Descritiva (R1)
 python estatistica.py
 
 # 2. Dashboard de Visualização (R2)
-python dashboard.py
+python Dashboard.py
 
 # 3. Machine Learning (R3)
 python machine_learning.py
