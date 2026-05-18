@@ -127,8 +127,6 @@ Para cada variável foram calculados:
 **Arquivo:** `dashboard.py`  
 **Saída:** `dashboard.png`
 
-![Dashboard Steam](dashboard.png)
-
 O dashboard foi desenvolvido utilizando **Matplotlib** e contém 3 gráficos principais.
 
 ---
@@ -157,12 +155,14 @@ Gráfico comparando a aprovação média dos jogos em cada faixa de preço.
 
 ---
 
+![Dashboard Steam](dashboard.png)
+
+---
+
 # 🤖 Etapa 3 — R3: Modelagem Preditiva (Machine Learning)
 
 **Arquivo:** `machine_learning.py`  
 **Saída:** `matrizes_confusao.png`
-
-![Matrizes de Confusão](matrizes_confusao.png)
 
 ---
 
@@ -258,6 +258,10 @@ LogisticRegression(
 | F1-Score | Executar para ver | Executar para ver |
 
 > Execute `machine_learning.py` para preencher os resultados reais.
+
+---
+
+![Matrizes de Confusão](matrizes_confusao.png)
 
 ---
 
