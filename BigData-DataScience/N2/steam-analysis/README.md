@@ -8,7 +8,7 @@ Análise completa de 27.075 jogos da plataforma Steam.
 # 👥 Integrantes do Grupo
 
 1. Arthur Machado Santos  
-2. Guilherme Medeiro Nogueira
+2. Guilherme Nogueira Medeiro
 
 ---
 
