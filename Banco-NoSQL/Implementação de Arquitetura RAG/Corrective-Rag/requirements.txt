@@ -1,0 +1,6 @@
+pandas
+sentence-transformers
+qdrant-client
+openai
+python-dotenv
+tqdm
