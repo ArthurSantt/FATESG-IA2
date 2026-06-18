@@ -82,7 +82,7 @@ import requests
 
 DATABASE_ID = "9e0d65dd-2ad2-4bb4-a663-695e38fa52dc"
 REGION = "us-east-2"
-TOKEN = "AstraCS:mUzwYcxfBsEMurWaPYmHXsRl:c0f5869d6f..."
+TOKEN = "AstraCS:mUzwYcxuPYmHXsRl:c0f..."
 
 url = f"https://{DATABASE_ID}-{REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/default_keyspace/leituras_sensor"
 
