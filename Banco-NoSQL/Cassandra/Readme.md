@@ -1,14 +1,14 @@
-# 📦 API - Banco Cassandra
+# API - Banco Cassandra
 
 Atividade prática da disciplina de **Banco de Dados NoSQL** do curso de Ciência de Dados e Inteligência Artificial (FATESG).
 
-## 🎯 Objetivo
+## Objetivo
 
 Replicar o tutorial de uso do Apache Cassandra via **DataStax Astra**, criando um banco de dados serverless, modelando uma tabela de leituras de sensores via CQL e, por fim, consumir a API REST do banco utilizando **Python**.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - [DataStax Astra](https://astra.datastax.com) — plataforma serverless baseada em Apache Cassandra
 - **CQL (Cassandra Query Language)** — linguagem de consulta do Cassandra
@@ -16,7 +16,7 @@ Replicar o tutorial de uso do Apache Cassandra via **DataStax Astra**, criando u
 
 ---
 
-## 📋 Etapas Realizadas
+## Etapas Realizadas
 
 ### 1. Criação do banco no DataStax Astra
 
@@ -117,7 +117,7 @@ print(response.text)
 
 ---
 
-## 💡 Conceitos Aprendidos
+## Conceitos Aprendidos
 
 ### O que é um Keyspace?
 No Cassandra, um **keyspace** é equivalente a um banco de dados nos sistemas relacionais. Ele agrupa as tabelas e define a estratégia de replicação.
@@ -136,7 +136,7 @@ Por isso a `PRIMARY KEY` foi definida como `((sensor_id, data_leitura), horario)
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 Cassandra/
