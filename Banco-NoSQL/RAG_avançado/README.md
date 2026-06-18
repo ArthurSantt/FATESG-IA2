@@ -1,35 +1,32 @@
-# Advanced RAG Pipeline with Cross-Encoder Re-ranking
+# Pipeline RAG Avançado com Re-ranqueamento por Cross-Encoder
 
-This repository contains a structured, cell-by-cell implementation of an advanced Retrieval-Augmented Generation (RAG) pipeline optimized for Google Colab or local Jupyter Notebooks. The pipeline enhances traditional vector search accuracy by incorporating a semantic re-ranking step using a Cross-Encoder model.
+Este repositório contém uma implementação estruturada, célula por célula, de um pipeline RAG (Geração Aumentada por Recuperação) avançado, otimizado para Google Colab ou Jupyter Notebooks locais. O pipeline melhora a precisão da busca vetorial tradicional ao incorporar uma etapa de re-ranqueamento semântico utilizando um modelo Cross-Encoder.
 
-## Features
+## Funcionalidades
 
-- Intelligent text chunking using `RecursiveCharacterTextSplitter`.
-- Document structuring with custom metadata.
-- Vector database indexing and similarity search using ChromaDB and HuggingFace embeddings (`all-MiniLM-L6-v2`).
-- Context optimization using a Cross-Encoder model (`ms-marco-MiniLM-L-6-v2`) to eliminate irrelevant search results (noise).
-- Automated final prompt synthesis for Large Language Models (LLMs).
+- Divisão inteligente de texto com `RecursiveCharacterTextSplitter`.
+- Estruturação de documentos com metadados personalizados.
+- Indexação em banco de dados vetorial e busca por similaridade com ChromaDB e embeddings HuggingFace (`all-MiniLM-L6-v2`).
+- Otimização de contexto com modelo Cross-Encoder (`ms-marco-MiniLM-L-6-v2`) para eliminar resultados irrelevantes (ruído).
+- Síntese automatizada do prompt final para Modelos de Linguagem de Grande Escala (LLMs).
 
-## Requirements
+## Requisitos
 
-The implementation relies on the following libraries:
 - `langchain`
 - `sentence-transformers`
 - `chromadb`
 - `langchain-community`
 
-## Project Structure
+## Estrutura do Projeto
 
-The codebase is split into modular execution cells:
+1. **Célula 1: Configuração do Ambiente** — Instala todas as dependências necessárias.
+2. **Célula 2: Importações e Configurações** — Inicializa o divisor de texto recursivo com separadores, tamanho de chunk e sobreposição configurados.
+3. **Célula 3: Processamento e Vetorização de Documentos** — Define a base de conhecimento, anexa metadados, gera embeddings semânticos e os armazena no banco vetorial Chroma.
+4. **Célula 4: Recuperação e Re-ranqueamento** — Executa a busca por similaridade inicial, calcula os scores de relevância via Cross-Encoder e filtra os contextos menos relevantes.
+5. **Célula 5: Geração do Prompt** — Formata o contexto refinado e a pergunta do usuário em um prompt estruturado pronto para consumo pelo LLM.
 
-1. **Cell 1: Environment Setup** - Installs all necessary dependencies in quiet mode.
-2. **Cell 2: Core Imports and Configurations** - Initializes the recursive text splitter with tailored character separators, chunk size, and overlap parameters.
-3. **Cell 3: Document Processing and Vectorization** - Defines the raw knowledge base, attaches relevant metadata, generates semantic embeddings, and stores them in an in-memory Chroma vector store.
-4. **Cell 4: Retrieval and Re-ranking (Rerank)** - Executes the initial similarity search, computes exact question-document relevance scores via the Cross-Encoder, and filters out suboptimal contexts.
-5. **Cell 5: Prompt Generation** - Formats the refined context and user query into a structured prompt layout ready for LLM consumption.
+## Como Usar
 
-## Usage
-
-1. Open a new notebook in Google Colab or your local environment.
-2. Copy and paste the contents of each cell sequentially.
-3. Execute the cells in order to observe how the raw text transforms into a highly refined prompt context.
+1. Abra um novo notebook no Google Colab ou no seu ambiente local.
+2. Copie e cole o conteúdo de cada célula sequencialmente.
+3. Execute as células em ordem para observar como o texto bruto se transforma em um contexto de prompt altamente refinado.
